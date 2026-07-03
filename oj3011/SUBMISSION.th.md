@@ -7,13 +7,13 @@
 หมายเลข/ชื่อโจทย์ OJ:
 
 ```text
-2996/สลับตัวอักษร
+3011/Colors
 ```
 
 OJ submission ID ถ้ามีการส่งแล้ว:
 
 ```text
-541772
+542066
 ```
 
 สถานะ OJ:
@@ -25,7 +25,7 @@ Pass
 เวลาที่ใช้คิดและทำโจทย์ด้วยตนเอง:
 
 ```text
-0-15 minutes
+30-60 minutes
 ```
 
 ---
@@ -33,11 +33,8 @@ Pass
 ## 2. ความเข้าใจโจทย์ของฉัน
 
 ```text
-Input คือ ข้อความหรือ คำๆ หนึ่งที่เป็น string
-Output คือ ข้อความ หรือ string ที่ Input เข้ามาในรูปแบบคำที่กลับด้านโดยที่ทุกตัวถูกแปลงเป็น lowercase
-เช่น
-Input : Hello
-Output : olleh
+Input คือ แม่สีทั้ง 3 สีในรูปแบบของข้อความ string
+Output คือ ข้อความที่บอกสีที่ผสมได้และ Error เมื่อสีที่ Input ไม่ใช่ Red, Yellow, Blue
 ```
 
 ---
@@ -45,9 +42,10 @@ Output : olleh
 ## 3. แผนแรกของฉัน
 
 ```text
-Step 1:รับค่าข้อความด้วย input().casefold() ไปเก็บไว้ใน text
-Step 2:เพราะ casefold ทำให้ input แปลงอักษรเป็น lowercase แล้ว
-Step 3:แสดงผลด้วยการใช้ Slicing String
+Step 1:สร้าง function main เพื่อจะใช้ return ในกรณีที่เกิด Error เพื่อให้หยุดทำงานทันที
+Step 2:รับ Input คือแม่สีทั้ง 2 และสร้าง color_set ที่เป็น Dict เพื่อแปลงค่าเป็นตัวเลข
+Step 3:check ว่าสีที่รับเข้ามาอยู่ในแม่สีทั้ง 3 มั้ยด้วยการใช้ Keys จาก color_set
+Step 4:ถ้าไม่ Error ให้ไปอ่านเงื่อนไขต่อว่าผสมกันได้สีอะไร เช่น Orange, Violet, Green
 ```
 
 ---
@@ -55,7 +53,7 @@ Step 3:แสดงผลด้วยการใช้ Slicing String
 ## 4. วิธีสุดท้ายที่ใช้จริง
 
 ```text
-เหมือนกันกับแผนแรกเพราะผลลัพออกมาถูกต้องตามที่คิดและผ่านได้ทุก Test Case
+คล้ายๆ กับแผนแรกแต่เพิ่มเงื่อนไขมาอีกคือในกรณีที่ Input เป็นแม่สีและสีเดียวกันเช่น แดงกับแดง ให้แสดงผลสีที่ Input มาเลย
 ```
 
 ---
@@ -67,25 +65,26 @@ Step 3:แสดงผลด้วยการใช้ Slicing String
 ทำไมเลือก case นี้:
 
 ```text
-เพราะมีการสลับระหว่างตัวพิมพ์เล็กและพิมพ์ใหญ่
+Test เมื่อ Input เป็นค่าว่าง
 ```
 
 Input:
 
 ```text
-AaBbCcDd
+
+
 ```
 
 Expected output:
 
 ```text
-ddccbbaa
+Error
 ```
 
 Actual output:
 
 ```text
-ddccbbaa
+Error
 ```
 
 Result:
@@ -99,25 +98,26 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-เพื่อทดสอบเมื่อมี input ที่เป็นตัวอักษรพิเศษ
+ทดสอบใส่สีที่ไม่ใช่แม่สี 1 สี
 ```
 
 Input:
 
 ```text
-HELLO_EMMA+@#'
+Red
+Pink
 ```
 
 Expected output:
 
 ```text
-'#@+amme_olleh
+Error
 ```
 
 Actual output:
 
 ```text
-'#@+amme_olleh
+Error
 ```
 
 Result:
@@ -131,25 +131,26 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-ทดสอบเมื่อมีการ Input ตัวเลข
+ทดสอบเมื่อใส่แม่สีผสมสีซ้ำ
 ```
 
 Input:
 
 ```text
-tc3_OJ2996&69070044
+Red
+Red
 ```
 
 Expected output:
 
 ```text
-44007096&6992jo_3ct
+Red
 ```
 
 Actual output:
 
 ```text
-44007096&6992jo_3ct
+Red
 ```
 
 Result:

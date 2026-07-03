@@ -10,13 +10,15 @@ def main():
     if color_0 not in primary_c or color_1 not in primary_c:
         print("Error")
         return
-    
+
     color = (color_set[color_0], color_set[color_1])
-    if color == (0, 1) or color == (1, 0):
+    if color_0 == color_1:
+        print(color_1)
+    elif color in ((0, 1), (1, 0)):
         print("Orange")
-    elif color == (0, 2) or color == (2, 0):
+    elif color in ((0, 2), (2, 0)):
         print("Violet")
-    elif color == (1, 2) or color == (2, 1):
+    elif color in ((1, 2), (2, 1)):
         print("Green")
     else:
         print("Error")
