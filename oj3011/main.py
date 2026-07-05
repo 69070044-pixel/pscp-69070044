@@ -2,23 +2,17 @@
 
 def main():
     """main function"""
-    color_0 = input()
-    color_1 = input()
+    color_0 = input().casefold()
+    color_1 = input().casefold()
 
-    color_set = {'Red':0, 'Yellow':1, 'Blue':2}
-    primary_c = color_set.keys()
-    if color_0 not in primary_c or color_1 not in primary_c:
-        print("Error")
-        return
-
-    color = (color_set[color_0], color_set[color_1])
-    if color_0 == color_1:
-        print(color_1)
-    elif color in ((0, 1), (1, 0)):
+    color = (color_0, color_1)
+    if color_0 == color_1 and color_0 in ("red", "yellow", "blue"):
+        print(color_1.capitalize())
+    elif color in (("red", "yellow"), ("yellow", "red")):
         print("Orange")
-    elif color in ((0, 2), (2, 0)):
+    elif color in (("red", "blue"), ("blue", "red")):
         print("Violet")
-    elif color in ((1, 2), (2, 1)):
+    elif color in (("yellow", "blue"), ("blue", "yellow")):
         print("Green")
     else:
         print("Error")
