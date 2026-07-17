@@ -1,8 +1,10 @@
 """OJ3032"""
 n = int(input())
 scores = []
-for _ in range(0, n):
+i = 0
+while i != n:
     scores.append(float(input()))
+    i += 1
 maximum = max(scores)
 print(int(maximum))
 print(scores.count(maximum))
