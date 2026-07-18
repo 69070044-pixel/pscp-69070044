@@ -8,17 +8,18 @@ sit_p = float(input())
 run_p = float(input())
 stand_p = float(input())
 
-def slove(a, b):
+def celi(a, b):
     """
-    หารปัดเศษ
+    หารปัดเศษขึ้น
+    return a / b
     """
     if not a % b:
-        return a / b
-    return (a / b) + 1
+        return int(a / b)
+    return int((a / b) + 1)
 
-wit_day = slove(wit, wit_p)
-sit_day = slove(sit, sit_p)
-stand_day = slove(stand, stand_p)
-run_day = slove(run, run_p)
+wit_day = celi(wit, wit_p)
+sit_day = celi(sit, sit_p)
+stand_day = celi(stand, stand_p)
+run_day = celi(run, run_p)
 
-print(int(max([wit_day, sit_day, stand_day, run_day])))
+print(max([wit_day, sit_day, stand_day, run_day]))
