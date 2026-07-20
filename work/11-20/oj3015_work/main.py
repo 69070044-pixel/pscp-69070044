@@ -1,13 +1,12 @@
 """OJ3015"""
 come = int(input())
-pay = int(input())
-price_per_person = int(input())
-members = int(input())
+pay_person = int(input()) # มา come คนจ่าย pay_person คน
+price_per_person = int(input()) # ราคาต่อหัว
+customer = int(input()) # ลูกค้าที่มา
 
-if members >= come:
-    pro_time = members // come
-    must_pay = (pro_time * pay) + (members % come)
-    total = must_pay * price_per_person
-    print(total)
-else:
-    print(members  * price_per_person)
+# ได้กี่โต๊ะ (โต๊ะละ come คน)
+table = customer // come
+remainning = customer % come #คนที่เหลือที่ต้องจ่ายเพราะคนไม่ครบโปร
+
+paid = table * (pay_person * price_per_person) + remainning * price_per_person
+print(paid)

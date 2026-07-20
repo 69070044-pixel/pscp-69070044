@@ -1,4 +1,5 @@
 """OJ3008"""
+# Heron of Alexandria
 import math as m
 
 a = float(input())
@@ -7,5 +8,5 @@ c = float(input())
 
 s = sum([a, b, c])/2
 
-area = m.sqrt(s*(s-a)*(s-b)*(s-c))
+area = m.sqrt(s * (s-a) * (s-b) * (s-c))
 print(f"{area:.3f}")
