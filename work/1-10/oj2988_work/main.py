@@ -1,6 +1,4 @@
 """OJ2988"""
 cid = input()
-if len(cid) == 13:
-    print("yes")
-else:
-    print("no")
+# print yes if id length == 13 else no
+print("yes" if len(cid) == 13 else "no")
