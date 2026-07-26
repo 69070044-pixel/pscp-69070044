@@ -14,7 +14,7 @@ ovl_width = max(0, ovl_right - ovl_left)
 ovl_heigth = max(0, ovl_bottom - ovl_top)
 
 ovl_area = ovl_heigth * ovl_width
-if ovl_width:
-    print(ovl_area)
+if ovl_area:
+    print(int(ovl_area))
 else:
     print("no overlapping")
