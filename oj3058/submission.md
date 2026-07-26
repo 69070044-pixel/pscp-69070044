@@ -21,7 +21,7 @@ OJ3058/BrickBridge
 OJ submission ID ถ้ามีการส่งแล้ว:
 
 ```text
-571606
+571624
 ```
 
 สถานะ OJ:
