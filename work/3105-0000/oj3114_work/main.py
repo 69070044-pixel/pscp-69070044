@@ -18,7 +18,7 @@ diff_h = ceil(diff_m / 60)
 hour_check = h1 > 23 or h2 > 23
 minute_check = m1 >= 60 or m2 >= 60
 
-if  hour_check or minute_check or diff_m < 0 or diff_m > 1440:
+if  hour_check or minute_check or not 0 < diff_m < 1440:
     print("ERROR")
 elif 0 <= diff_m <= 15:
     print("FREE")
