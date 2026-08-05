@@ -1,5 +1,5 @@
 """[LEARNING LOGS] สหกรณ์โรงเรียน"""
-from math import floor
+from math import ceil
 is_member = input() == "Y"
 n, total = int(input()), 0
 
@@ -9,12 +9,11 @@ while n:
 
 def round_half_up(x):
     """ปัดเศษมาตรฐาน"""
-    return floor(x * 100 + 0.6) / 100
+    return ceil(x * 100) / 100
 
 if is_member:
-    result = round_half_up(total - (total * 0.05))
+    total *= 0.95
 elif total >= 500:
-    result = round_half_up(total - (total * 0.03))
-else:
-    result = total
-print(f"{result:.2f}")
+    total *= 0.97
+
+print(f"{round_half_up(total):.2f}")
