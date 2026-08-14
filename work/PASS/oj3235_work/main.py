@@ -1,16 +1,11 @@
 """Fat Rabbit"""
-n = int(input())
-rabbits, maximum, count = {}, 0, 0
-while n:
-    rabbit, weight = input().split()
+n, rabbit, maximum, count = int(input()), "", 0, 0
+for _ in range(n):
+    name, weight = input().split()
     weight = int(weight)
     if weight > 15:
         count += 1
-    if maximum:
-        if weight > maximum:
-            maximum = weight
-    else:
+    if weight > maximum:
         maximum = weight
-    rabbits[weight] = rabbit
-    n -= 1
-print(count, rabbits[maximum], sep="\n")
+        rabbit = name
+print(count, rabbit, sep="\n")
