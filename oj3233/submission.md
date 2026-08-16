@@ -21,7 +21,7 @@ OJ3233 - [LEARNING LOGS] สลากกินแบ่ง
 OJ submission ID ถ้ามีการส่งแล้ว:
 
 ```text
-610484
+610552
 ```
 
 สถานะ OJ:
