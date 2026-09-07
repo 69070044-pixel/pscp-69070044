@@ -9,11 +9,7 @@ def vat_cat(x):
 
 used_unit = int(input())
 total, cal_unit = 0, used_unit
-# Unit 1 – 10 = 5 Baht Per Unit
-# Unit 11 – 50 = 7 Baht Per Unit
-# Unit 51 – 100 = 10 Baht Per Unit
-# Unit 101 – 200 = 12 Baht Per Unit
-# Unit 201 เป็นต้นไป = 15 Baht Per Unit
+
 if used_unit > 200:
     total += (15 * (used_unit - 200))
     cal_unit = 200
@@ -29,4 +25,4 @@ if 11 <= cal_unit <= 50:
 if 1 <= cal_unit <= 10:
     total += (5 * cal_unit)
 
-print(f"{(total + ft_cal(used_unit) + vat_cat(total)):.1f}")
+print(f"{round((total + ft_cal(used_unit) + vat_cat(total)) + 0.001, 1):.1f}")
