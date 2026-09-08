@@ -1,29 +1,27 @@
 """RealThaiPlus"""
 from math import floor
 wallet, days = int(input()), int(input())
-credits = 1000
-complete = 0
+monthcredits = 1000
+complete, usage = 0, 0
+
+def my_min(a, b):
+    """my min function"""
+    return a if a < b else b
+
 for _ in range(days):
-    if credits >= 200:
-        daycredits = 200
-    else:
-        daycredits = credits
+    daycredits = 200
     items = int(input())
     for _ in range(items):
         value = int(input())
         pay = floor(value * 0.4)
-        gcredits = value - pay
-        if wallet < pay:
-            continue
-        if gcredits <= daycredits and pay <= wallet and pay + gcredits >= value:
+        gov_help = value - pay
+        gov_help = my_min(gov_help, daycredits)
+        gov_help = my_min(gov_help, monthcredits)
+        real_pay = value - gov_help
+        if wallet >= real_pay:
+            wallet -= real_pay
+            daycredits -= gov_help
+            monthcredits -= gov_help
+            usage += gov_help
             complete += 1
-            wallet -= pay
-            daycredits -= gcredits
-        elif (value - daycredits) <= wallet:
-            complete += 1
-            pay = value - daycredits
-            wallet -= pay
-            daycredits = 0
-    if credits:
-        credits -= (200 - daycredits)
-print(complete, wallet, 1000 - credits, sep="\n")
+print(complete, wallet, usage, sep="\n")
