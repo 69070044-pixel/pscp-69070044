@@ -5,8 +5,8 @@ for _ in range(n):
     inv["fire"] += max(data[0], data[3])
     inv["water"] += max(data[1], data[4])
     inv["earth"] += max(data[2], data[5])
-bonus = inv["fire"] > inv["water"] + inv["earth"]
+BONUS = inv["fire"] > inv["water"] + inv["earth"]
 print("Total:", sum(inv.values()))
 for i, v in inv.items():
     print(f"{i.capitalize()}:", v)
-print("Bonus: YES" if bonus else "Bonus: NO")
+print("Bonus: YES" if BONUS else "Bonus: NO")
